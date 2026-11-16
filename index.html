@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#176b4b">
+  <meta name="description" content="MAGYAR KALAND — apprendre le hongrois en s'amusant avec Axel.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon-192.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>MAGYAR KALAND</title>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-icon">🇭🇺</span><div><strong>MAGYAR KALAND</strong><small>L'aventure hongroise d'Axel</small></div></div>
+    <button id="installBtn" class="install-btn" hidden>＋ Installer</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">SZIA AXEL !</p>
+        <h1>Prêt pour ta<br><span>prochaine aventure ?</span></h1>
+        <p>Un peu de hongrois chaque jour : écouter, lire, écrire et parler.</p>
+        <div class="stats">
+          <div><b id="stars">0</b><small>⭐ étoiles</small></div>
+          <div><b id="doneCount">0</b><small>missions réussies</small></div>
+          <div><b id="streak">0</b><small>jours d'aventure</small></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Mascotte renard"><div class="sun"></div><div class="fox">🦊</div><div class="hill"></div><div class="hill hill2"></div><div class="sign">MAGYAR<br>KALAND</div></div>
+    </section>
+
+    <nav class="tabs" aria-label="Navigation">
+      <button class="tab active" data-tab="journey">🗺️ Mon parcours</button>
+      <button class="tab" data-tab="practice">🎮 Entraînement</button>
+      <button class="tab" data-tab="progress">🏆 Mes progrès</button>
+      <button class="tab" data-tab="parent">⚙️ Parents</button>
+    </nav>
+
+    <section id="journey" class="panel active">
+      <div class="section-heading"><div><p class="eyebrow">TON ÉCOLE DE HONGROIS</p><h2>Les missions</h2></div><span class="level-pill" id="levelLabel">Niveau 1 · Explorateur</span></div>
+      <div id="lessonGrid" class="lesson-grid"></div>
+      <div class="tip">💡 <b>Le conseil du renard :</b> 10 à 15 minutes par jour, c'est déjà super ! Répète les mots à voix haute.</div>
+    </section>
+
+    <section id="practice" class="panel">
+      <div class="section-heading"><div><p class="eyebrow">JE M'ENTRAÎNE</p><h2>Le mini-défi du jour</h2></div><span class="level-pill">🎯 5 questions</span></div>
+      <div class="practice-card">
+        <div class="practice-illustration" id="practiceEmoji">🎒</div>
+        <p class="eyebrow" id="practiceType">VOCABULAIRE</p>
+        <h3 id="question">Comment dit-on « Bonjour » en hongrois ?</h3>
+        <div id="choices" class="choices"></div>
+        <div id="feedback" class="feedback" aria-live="polite"></div>
+        <button id="nextQuestion" class="primary" disabled>Question suivante →</button>
+      </div>
+    </section>
+
+    <section id="progress" class="panel">
+      <div class="section-heading"><div><p class="eyebrow">BRAVO POUR TES EFFORTS</p><h2>Mes progrès</h2></div></div>
+      <div class="progress-summary">
+        <div class="big-stat">⭐ <b id="progressStars">0</b><small>étoiles gagnées</small></div>
+        <div class="big-stat">📚 <b id="progressLessons">0/0</b><small>leçons terminées</small></div>
+        <div class="big-stat">🧠 <b id="knownWords">0</b><small>mots maîtrisés</small></div>
+      </div>
+      <h3>Mes badges</h3><div id="badges" class="badges"></div>
+      <h3>Mes mots à revoir</h3><div id="reviewWords" class="word-list"></div>
+    </section>
+
+    <section id="parent" class="panel">
+      <div class="section-heading"><div><p class="eyebrow">ESPACE ADULTE</p><h2>Réglages et sauvegarde</h2></div></div>
+      <div class="parent-card">
+        <h3>🔊 Écouter les mots</h3>
+        <p>La voix utilise les voix installées dans le navigateur. Choisis une langue puis écoute un exemple.</p>
+        <div class="button-row"><button class="secondary" id="testFr">Écouter en français</button><button class="secondary" id="testHu">Écouter en hongrois</button></div>
+        <p class="muted small" id="voiceStatus">La disponibilité des voix dépend de l'appareil et de sa connexion.</p>
+      </div>
+      <div class="parent-card">
+        <h3>🔄 Transférer la progression entre tablette et ordinateur</h3>
+        <p>Cette première version enregistre les progrès sur chaque appareil. Pour les retrouver sur un autre appareil, exporte la sauvegarde ici puis importe le fichier sur l'autre appareil.</p>
+        <div class="button-row"><button id="exportBtn" class="primary">⬇ Exporter ma sauvegarde</button><label class="file-button">⬆ Importer une sauvegarde<input id="importFile" type="file" accept="application/json"></label></div>
+        <p class="muted small">La synchronisation automatique par Internet nécessitera une prochaine étape avec un espace cloud sécurisé. Aucun compte ni abonnement n'est requis pour cette version.</p>
+      </div>
+      <div class="parent-card">
+        <h3>📱 Installer l'application</h3>
+        <p>Sur Android : ouvre cette application dans Chrome, menu ⋮, puis « Installer l'application » ou « Ajouter à l'écran d'accueil ».</p>
+        <p>Sur ordinateur : utilise le bouton « Installer » dans la barre du haut ou l'icône d'installation du navigateur.</p>
+      </div>
+      <div class="parent-card">
+        <h3>🧹 Réinitialiser la progression</h3>
+        <p>Cette action efface les étoiles et les missions terminées sur cet appareil.</p>
+        <button id="resetBtn" class="danger">Réinitialiser la progression</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>Fabriqué avec ❤️ pour Axel · MAGYAR KALAND · Version 1.0</footer>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="lessons-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
