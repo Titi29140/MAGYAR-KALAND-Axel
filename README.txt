@@ -35,3 +35,7 @@ Le contenu est une base débutant à faire évoluer. Les transcriptions phonéti
 
 CONFIDENTIALITÉ
 La progression reste dans le navigateur de l'appareil. La police Google est chargée depuis Google Fonts si Internet est disponible ; le reste de l'application est prévu pour fonctionner hors connexion après mise en cache.
+
+
+VERSION 1.1 - CORRECTION AUDIO
+La lecture vocale attend maintenant le chargement des voix du navigateur, tente une voix de remplacement et affiche les erreurs ainsi que les langues disponibles dans l’espace Parents. Le cache a été renouvelé pour appliquer la mise à jour.
